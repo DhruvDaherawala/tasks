@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Table</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      
+      margin: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Data Table</h1>
+  <div id="table-container">
+    <table>
+      <thead>
+        <tr>
+            <th>S_ID</th>
+            <th>User ID</th>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Image</td>
+            <th>T/F</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <!-- Rows will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+  <div class="button-container">
+    <button id="prev-button" disabled>Previous</button>
+    <button id="next-button">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo File</title>
+</head>
+<body>
+    <hr>
+    <h3>Task 1 : Write a function to reverse a string.</h3>
+    <input type="text" id="inputString-1" placeholder="Enter a string">
+    <button onclick="reverseString()">Reverse String</button>
+    <p id="result-1"></p>
+    
+    <hr>
+    <h3>Task 2 : Write a function to check if a string is a palindrome.</h3>
+    <input type="text" id="inputString-2" placeholder="Enter a string">
+    <button onclick="isPalindrome()">Check Palindrome</button>
+    <p id="result-2"></p>
+    
+    <hr>
+    <h3>Task 3 : Count the number of vowels in a string.</h3>
+    <input type="text" id="inputString-3" placeholder="Enter a string">
+    <button onclick="countVowels()">Count Vowels</button>
+    <p id="result-3"></p>
+
+    <hr>
+    <h3>Task 4 : Write a function to filter out even numbers from an array.</h3>
+    <input type="text" id="inputArray-4" placeholder="Enter an array">
+    <button onclick="filterEven()">Filter Even Numbers</button>
+    <p id="result-4"></p>
+
+    <hr>
+    <h3>Task 5 : Write a function to find the largest number in an array.</h3>
+    <input type="text" id="inputArray-5" placeholder="Enter an array">
+    <button onclick="findLargest()">Find Largest Number</button>
+    <p id="result-5"></p>
+
+    <hr>
+    <h3>Task 6 : Implement a function to calculate the factorial of a number.</h3>
+    <input type="text" id="inputNumber-6" placeholder="Enter a number">
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <p id="result-6"></p>
+
+    <hr>
+    <h3>Task 7 : Write a function to check if a given number is prime.</h3>
+    <input type="text" id="input_Number_7" placeholder="Enter a number">
+    <button onclick="isPrime()">Check Prime</button>
+    <p id="result-7"></p>
+
+    <hr>
+</body>
+
+
+<script>
+
+// Task 1 : Write a function to reverse a string.
+function reverseString() {
+    let input_String = document.getElementById("inputString-1").value;
+    let reversed = input_String.split('').reverse().join('');
+    document.getElementById("result-1").innerText = reversed;
+}
+
+// Task 2 : Write a function to check if a string is a palindrome.
+function isPalindrome() {
+    let input_String_2 = document.getElementById("inputString-2").value;
+    let reversed = input_String_2.split('').reverse().join('');
+    if(input_String_2 === reversed) {
+        document.getElementById("result-2").innerText = "The string is a palindrome.";
+    } else {
+        document.getElementById("result-2").innerText = "The string is not a palindrome.";
+    }
+}
+
+// Task 3 : Count the number of vowels in a string.
+function countVowels() {
+    let input_String_3 = document.getElementById("inputString-3").value;
+    let count = 0;
+    for(let i = 0; i < input_String_3.length; i++) {
+        if(input_String_3[i].toLowerCase() === 'a' || input_String_3[i].toLowerCase() === 'e' || input_String_3[i].toLowerCase() === 'i' || input_String_3[i].toLowerCase() === 'o' || input_String_3[i].toLowerCase() === 'u') {
+            count++;
+        }
+    }
+    document.getElementById("result-3").innerText = "Number of vowels in the string : " + count;
+}
+
+// Task 4 : Write a function to filter out even numbers from an array.
+function filterEven() {
+    let input_Array_4 = document.getElementById("inputArray-4").value;
+    let array = input_Array_4.split(',').map(Number);
+    let evenNumbers = array.filter(function(number) { return parseInt(number)%2 === 0});
+    document.getElementById("result-4").innerText = "Even numbers in the array : " + evenNumbers;
+}
+
+// Task 5 : Write a function to find the largest number in an array.
+function findLargest() {
+    let input_Array_5 = document.getElementById("inputArray-5").value;
+    let array = input_Array_5.split(',').map(Number);
+    let largest = Math.max.apply(null, array);
+    document.getElementById("result-5").innerText = "Largest number in the array : " + largest; 
+}
+
+// Task 6 : Implement a function to calculate the factorial of a number.
+function calculateFactorial() {
+    let input_Number_6 = document.getElementById("inputNumber-6").value;
+    let factorial = 1;
+    for(let i = 1; i <= input_Number_6; i++) {
+        factorial *= i;
+    }
+    document.getElementById("result-6").innerText = "Factorial of the number : " + factorial;
+}
+
+// Task 7 : Write a function to check if a given number is prime.
+function isPrime() {
+    let input_Number_7 = document.getElementById("input_Number_7").value;
+    let isPrime = true;
+    if(input_Number_7 === 1) {
+        isPrime = false;
+    } else if(input_Number_7 > 1) {
+        for(let i = 2; i <= Math.sqrt(input_Number_7); i++) {
+            if(input_Number_7 % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if(isPrime) {
+        document.getElementById("result-7").innerText = "The number is prime.";
+    } else {
+        document.getElementById("result-7").innerText = "The number is not prime.";
+    }
+}
+
+</script>
+</html>
